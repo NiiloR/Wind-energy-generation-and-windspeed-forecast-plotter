@@ -1,3 +1,15 @@
+"""
+This is small program for exercise 8 on Tampere University course 
+COMP.SE.221-2024-2025-1 Sustainable software engineering. The program 
+fetches next 24h wind speed forecast data from open-meteo API and combines 
+it into a chart with wind power generation forecast data from Fingrid 
+API for the same period. To run the program, add you own fingrid 
+API-key to the line 94.
+
+Made by: Niilo Rannikko
+Email: niilo.rannikko@tuni.fi
+"""
+
 import openmeteo_requests
 import urllib.request, json
 import urllib.parse
@@ -64,7 +76,7 @@ minutely_15_dataframe = pd.DataFrame(data = minutely_15_data)
 print(minutely_15_dataframe)
 
 
-findridAPI_KEY = "c3b13c7e1edc491a8239bf7faa4e341d341d"
+findridAPI_KEY = FINGRID_API_KEY
 datasetId = "245"
 start = get_latest_quarter_hour()
 end = start + datetime.timedelta(days=1)
@@ -79,7 +91,7 @@ try:
     hdr ={
     # Request headers
     'Cache-Control': 'no-cache',
-    'x-api-key': FINGRID_API_KEY  # Add your API key here
+    'x-api-key': 'e4df54200c974ecc85e9f35485933861'  # Add your API key here
     }
 
     req = urllib.request.Request(url2, headers=hdr)
