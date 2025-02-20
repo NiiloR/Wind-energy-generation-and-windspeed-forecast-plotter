@@ -76,7 +76,7 @@ minutely_15_dataframe = pd.DataFrame(data = minutely_15_data)
 print(minutely_15_dataframe)
 
 
-findridAPI_KEY = FINGRID_API_KEY
+
 datasetId = "245"
 start = get_latest_quarter_hour()
 end = start + datetime.timedelta(days=1)
@@ -91,7 +91,7 @@ try:
     hdr ={
     # Request headers
     'Cache-Control': 'no-cache',
-    'x-api-key': 'e4df54200c974ecc85e9f35485933861'  # Add your API key here
+    'x-api-key': FINGRID_API_KEY  # Add your API key here
     }
 
     req = urllib.request.Request(url2, headers=hdr)
